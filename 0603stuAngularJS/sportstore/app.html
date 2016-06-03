@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="sportStore">
+<head>
+    <meta charset="UTF-8">
+    <title>购物网站</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="lib/angular.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        var module = angular.module("sportStore",
+                ["customFilters","cart"]);
+    </script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/productListActiveController.js"></script>
+    <script src="components/cart.js"></script>
+</head>
+
+<body ng-controller="productListCtrl">
+    <div class="navbar navbar-inverse">
+        <a href="#" class="navbar-brand">我的购物网站</a>
+    </div>
+    <div class="alert alert-danger"  ng-show="data==null">
+        数据传输错误!!请联系管理员
+    </div>
+
+    <ng-include src="'views/productListView.html'"></ng-include>
+    <cart-summary />
+
+
+</body>
+</html>
